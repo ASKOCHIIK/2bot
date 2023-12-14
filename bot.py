@@ -104,6 +104,7 @@ def func(message):
                 bot.send_message(call.message.chat.id, 'Хорошо, не буду показывать список курса.')
 
 
+
     elif (message.text == "Вернуться в главное меню"):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         button1 = types.KeyboardButton("👋 Поздороваться")
@@ -112,6 +113,14 @@ def func(message):
         bot.send_message(message.chat.id, text="Вы вернулись в главное меню", reply_markup=markup)
     else:
         bot.send_message(message.chat.id, text="На такую комманду я не отвечаю прости..\n Мой создатель будет ругать)")
+
+    @bot.message_handler()
+    def user(message):
+        if message.text == 'Bektur':
+            bot.send_message(message.chat.id, 'Hi Bektur')
+        elif message.text == 'Pic':
+            photo = open('recent:///e58b87c4da76ed7963d8c163657acbfe', 'rb')
+            bot.send_photo(message.chat.id, photo)
 
 
 if __name__ == '__bot__':
