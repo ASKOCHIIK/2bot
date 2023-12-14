@@ -110,6 +110,9 @@ def func(message):
         button2 = types.KeyboardButton("Задать вопрос❓")
         markup.add(button1, button2)
         bot.send_message(message.chat.id, text="Вы вернулись в главное меню", reply_markup=markup)
+    elif message.text == 'photo':
+        foto = open('Снимок экрана 2023-12-11 в 15.31.00.png', 'rb')
+        bot.send_photo(message.chat.id, foto)
     else:
         bot.send_message(message.chat.id, text="На такую комманду я не отвечаю прости..\n Мой создатель будет ругать)")
 
