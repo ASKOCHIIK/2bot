@@ -5,6 +5,17 @@ from telebot import types
 bot = telebot.TeleBot('6825593973:AAHaO2DxvXxu957Mfh4a9ERJJZnQZfWEuNs')
 
 
+@bot.message_handler(content_types=['text'])
+def alika(lika):
+    if (lika.text == "Привет"):
+        bot.send_message(lika.chat.id, text="Привеет!!!)")
+
+    elif (lika.text == "Есть вопросы❓"):
+        me = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        li1 = types.KeyboardButton("Кто я ?")
+        li2 = types.KeyboardButton("робот ли я?")
+        me.add(li1, li2)
+        bot.send_message(lika.chat.id, text="какие вопросы", reply_markup=me)
 
 @bot.message_handler(commands=['start'])
 def start(message):
