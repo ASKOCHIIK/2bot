@@ -4,23 +4,21 @@ from telebot import types
 
 bot = telebot.TeleBot('6825593973:AAHaO2DxvXxu957Mfh4a9ERJJZnQZfWEuNs')
 
-@bot.message_handler(commands=['site'])
-def site(message):
-
+@bot.message_handler(commands=['hello'])
+def hello(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    btn1 = types.KeyboardButton("cvb")
-    btn2 = types.KeyboardButton("fddfs")
+    btn1 = types.KeyboardButton("Hello")
+    btn2 = types.KeyboardButton("how are you")
     markup.add(btn1, btn2)
-    bot.send_photo(message.chat.id ,reply_markup=markup)
-# @bot.send_message(c)
+    bot.send_message(message.chat.id,text="choose it", reply_markup=markup)
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton("👋 Поздороваться")
     btn2 = types.KeyboardButton("Задать вопрос❓")
-    btn3 = types.KeyboardButton("websites")
-    markup.add(btn1, btn2, btn3)
+    markup.add(btn1, btn2)
     bot.send_message(message.chat.id,
                      text="Привет, {0.first_name}! Я помошник Менторов по Python".format(
                          message.from_user), reply_markup=markup)
