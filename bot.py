@@ -4,6 +4,13 @@ from telebot import types
 
 bot = telebot.TeleBot('6825593973:AAHaO2DxvXxu957Mfh4a9ERJJZnQZfWEuNs')
 
+@bot.message_handler(commands=['hello'])
+def hello(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("Hello")
+    btn2 = types.KeyboardButton("how are you")
+    markup.add(btn1, btn2)
+    bot.send_message(message.chat.id,text="choose it", reply_markup=markup)
 
 @bot.message_handler(content_types=['text'])
 def alika(lika):
